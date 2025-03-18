@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <link rel="stylesheet" href="./css/base.css"> -->
+    <link rel="stylesheet" href="./css/style.css"/>
+    <title>Trang View All Articles</title>
+  </head>
+  <body>
+    <style>
+      :root {
+        --font-second: "Montserrat", sans-serif;
+        --font-main:"Bona Nova", serif;
+        --font-three:"Cairo", sans-serif;
+    }
+    
+    *{
+        box-sizing: border-box;
+        /* font-family: var(--font-main);
+        font-weight: 400;
+        font-style: normal; */
+    }
+     /* Định dạng chung */
+    body {
+        color: white;
+    }
+    .container-fluid{
+        padding:0;
+    }
+    </style>
+    <div class="header-body">
+      <header class="header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-3">
+              <div class="inner-logo">
+                <img src="./images/logo3.png" alt="Logo" />
+                <span>EARTH ODYSSEY</span>
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="profile">
+                <div class="row">
+                  <div class="col-10">
+  
+                  </div>            
+                  <div class="col-2">
+                    <div class="profile-logo dropdown dropdown-toggle">
+                      <img src="./images/profilelogo.jpg" alt="Profile Logo">
+                      <div class="profile-name">Tran Quang Minh</div>
+  
+                       <!-- Dropdown menu -->
+                        <div class="profile-dropdown">
+                          <ul>
+                            <li><a href="../TRANG ADMIN/personal-information.html">Thông tin cá nhân</a></li>
+                            <li>Cài đặt</li>
+                            <li><a href="../TRANG LOGIN ADMIN/index.html">Đăng xuất</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Dropdown -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="container-fluid body">
+        <div class="row w-100">
+          <div class="sider">
+            <div class="inner-sider">
+              <!-- <div class="dash-board">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+              </div> -->
+              <div class="menu">
+                <div class="menu-title">CORE</div>
+                <div class="menu-item">
+                  <span><i class="fa-solid fa-house"></i><a href="./dashboard.html">Dashboard</a></span>
+                </div>
+              </div>
+              <div class="menu">
+                <div class="menu-title">POST</div>
+                <div class="menu-item" onclick="toggleMenu('postMenu', this)">
+                  <span><i class="fas fa-edit"></i> Article</span>
+                  <i class="fas fa-chevron-left icon-toggle icon-dropdown"></i>
+                  <!-- Icon Toggle -->
+                </div>
+                <ul id="postMenu" class="submenu">
+                  <li><a href="#">View All</a></li>
+                  <li><a href="./addnewarticle.html">Add New Post</a></li>
+                </ul>
+  
+                <div class="menu-item" onclick="toggleMenu('categoryMenu', this)">
+                  <span><i class="fas fa-tag"></i> Category</span>
+                  <i class="fas fa-chevron-left icon-toggle icon-dropdown"></i>
+                </div>
+                <ul id="categoryMenu" class="submenu">
+                  <li><a href="#">Category 1</a></li>
+                  <li><a href="#">Category 2</a></li>
+                </ul>
+  
+                <div class="menu-item" onclick="toggleMenu('commentMenu', this)">
+                  <span><i class="fas fa-comments"></i> Comments</span>
+                  <i class="fas fa-chevron-left icon-toggle icon-dropdown"></i>
+                </div>
+                <ul id="commentMenu" class="submenu">
+                  <li><a href="#">View comments</a></li>
+                  <li><a href="#">Manage comments</a></li>
+                </ul>
+              </div>
+  
+              <div class="menu">
+                <div class="menu-title">ADMINISTRATOR</div>
+                <div class="menu-item">
+                  <span><i class="fa-solid fa-user-tie"></i>Users</span>
+                </div>
+                <div class="menu-item">
+                  <span><i class="fa-solid fa-circle-check"></i>Subscription</span>
+                </div>
+                <div class="menu-item">
+                  <span><i class="fa-solid fa-gear"></i>General Settings</span>
+                </div>
+                <div class="menu-item personal-information">
+                  <span><i class="fa-solid fa-id-card"></i><a href="./personal-information.html">Personal Infomation</a></span>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- MAIN VIEW ARTICLES -->
+<div class="main-view-articles container-fluid ">
+  <div class="card">
+    <div class="card-header bg-primary text-white">
+      <h5 class="mb-0">VIEW ARTICLES</h5>
+    </div>
+    <div class="card-body">
+      <!-- Search and Filter Section -->
+      <div class="row mb-5">
+        <div class="col-md-6">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search articles..." id="searchArticles">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" type="button">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 d-flex justify-content-end">
+          <div class="dropdown mr-2">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+              <i class="fas fa-filter"></i> Category
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item active" href="#">All Categories</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Environment</a>
+              <a class="dropdown-item" href="#">Science</a>
+              <a class="dropdown-item" href="#">Conservation</a>
+              <a class="dropdown-item" href="#">Climate Change</a>
+              <a class="dropdown-item" href="#">Sustainability</a>
+            </div>
+          </div>
+          <div class="dropdown mr-2">
+            <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown">
+              <i class="fas fa-sort"></i> Sort By
+            </button>
+            <div class="dropdown-menu">
+              <a class="dropdown-item active" href="#">Latest First</a>
+              <a class="dropdown-item" href="#">Oldest First</a>
+              <a class="dropdown-item" href="#">Title (A-Z)</a>
+              <a class="dropdown-item" href="#">Title (Z-A)</a>
+              <a class="dropdown-item" href="#">Most Views</a>
+            </div>
+          </div>
+          <a href="./addnewarticle.html" class="btn btn-success">
+            <i class="fas fa-plus"></i> Add New Article
+          </a>
+        </div>
+      </div>
+
+      <!-- Article Status Summary -->
+      <div class="row mb-4">
+        <div class="col-md-3">
+          <div class="card bg-light">
+            <div class="card-body text-center">
+              <h3 class="card-title">42</h3>
+              <p class="card-text text-muted">Total Articles</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-success text-white">
+            <div class="card-body text-center">
+              <h3 class="card-title">36</h3>
+              <p class="card-text">Published</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-warning">
+            <div class="card-body text-center">
+              <h3 class="card-title">4</h3>
+              <p class="card-text">Draft</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="card bg-info text-white">
+            <div class="card-body text-center">
+              <h3 class="card-title">2</h3>
+              <p class="card-text">Pending Review</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Articles Table -->
+      <div class="table-responsive">
+        <table class="table table-striped table-hover">
+          <thead class="thead-light">
+            <tr>
+              <th width="5%">
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="selectAll">
+                  <label class="custom-control-label" for="selectAll"></label>
+                </div>
+              </th>
+              <th width="5%">#</th>
+              <th width="30%">Title</th>
+              <th width="15%">Category</th>
+              <th width="15%">Author</th>
+              <th width="15%">Date</th>
+              <th width="10%">Status</th>
+              <th width="15%">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="article1">
+                  <label class="custom-control-label" for="article1"></label>
+                </div>
+              </td>
+              <td>1</td>
+              <td>
+                <a href="#" class="font-weight-bold">How to Protect Endangered Species</a>
+                <div class="small text-muted">Views: 1,250 | Comments: 42</div>
+              </td>
+              <td><span class="badge badge-pill badge-primary">Environment</span></td>
+              <td>Admin</td>
+              <td>2025-03-18</td>
+              <td><span class="badge badge-success">Published</span></td>
+              <td>
+                <div class="btn-group">
+                  <a href="#" class="btn btn-sm btn-outline-info" title="View"><i class="fas fa-eye"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-warning" title="Edit"><i class="fas fa-edit"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"><i class="fas fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="article2">
+                  <label class="custom-control-label" for="article2"></label>
+                </div>
+              </td>
+              <td>2</td>
+              <td>
+                <a href="#" class="font-weight-bold">The Impact of Climate Change</a>
+                <div class="small text-muted">Views: 980 | Comments: 36</div>
+              </td>
+              <td><span class="badge badge-pill badge-info">Science</span></td>
+              <td>John Doe</td>
+              <td>2025-03-17</td>
+              <td><span class="badge badge-success">Published</span></td>
+              <td>
+                <div class="btn-group">
+                  <a href="#" class="btn btn-sm btn-outline-info" title="View"><i class="fas fa-eye"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-warning" title="Edit"><i class="fas fa-edit"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"><i class="fas fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="article3">
+                  <label class="custom-control-label" for="article3"></label>
+                </div>
+              </td>
+              <td>3</td>
+              <td>
+                <a href="#" class="font-weight-bold">Sustainable Living Practices</a>
+                <div class="small text-muted">Views: 750 | Comments: 28</div>
+              </td>
+              <td><span class="badge badge-pill badge-success">Sustainability</span></td>
+              <td>Jane Smith</td>
+              <td>2025-03-16</td>
+              <td><span class="badge badge-success">Published</span></td>
+              <td>
+                <div class="btn-group">
+                  <a href="#" class="btn btn-sm btn-outline-info" title="View"><i class="fas fa-eye"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-warning" title="Edit"><i class="fas fa-edit"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"><i class="fas fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="article4">
+                  <label class="custom-control-label" for="article4"></label>
+                </div>
+              </td>
+              <td>4</td>
+              <td>
+                <a href="#" class="font-weight-bold">Wildlife Conservation Efforts</a>
+                <div class="small text-muted">Views: 630 | Comments: 24</div>
+              </td>
+              <td><span class="badge badge-pill badge-warning">Conservation</span></td>
+              <td>Robert Johnson</td>
+              <td>2025-03-15</td>
+              <td><span class="badge badge-warning">Draft</span></td>
+              <td>
+                <div class="btn-group">
+                  <a href="#" class="btn btn-sm btn-outline-info" title="View"><i class="fas fa-eye"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-warning" title="Edit"><i class="fas fa-edit"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"><i class="fas fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="article5">
+                  <label class="custom-control-label" for="article5"></label>
+                </div>
+              </td>
+              <td>5</td>
+              <td>
+                <a href="#" class="font-weight-bold">The Future of Renewable Energy</a>
+                <div class="small text-muted">Views: 520 | Comments: 18</div>
+              </td>
+              <td><span class="badge badge-pill badge-danger">Climate Change</span></td>
+              <td>Emily Chen</td>
+              <td>2025-03-14</td>
+              <td><span class="badge badge-info">Pending</span></td>
+              <td>
+                <div class="btn-group">
+                  <a href="#" class="btn btn-sm btn-outline-info" title="View"><i class="fas fa-eye"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-warning" title="Edit"><i class="fas fa-edit"></i></a>
+                  <a href="#" class="btn btn-sm btn-outline-danger" title="Delete"><i class="fas fa-trash"></i></a>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Bulk Actions and Pagination -->
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <div class="form-inline">
+            <select class="form-control mr-2">
+              <option>Bulk Actions</option>
+              <option>Publish</option>
+              <option>Move to Draft</option>
+              <option>Delete</option>
+            </select>
+            <button class="btn btn-outline-secondary">Apply</button>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-end">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" tabindex="-1">Previous</a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- END MAIN VIEW ARTICLES -->
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/script.js"></script>
+  </body>
+</html>

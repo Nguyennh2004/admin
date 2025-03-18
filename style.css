@@ -1,0 +1,602 @@
+/* Header */
+*{
+    box-sizing: border-box;
+}
+
+.body{
+    /* overflow: hidden; */
+}
+.header {
+    background: #202020;
+    /* padding: 0; */
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    padding: 5px 0;
+    font-family: var(--font-main);
+}
+.header .inner-logo{
+    display: flex;
+    align-items: center;
+}
+.header .inner-logo span {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-left: 10px;
+    font-weight: 600;
+    font-style: bold;
+}
+.header .inner-logo img{
+    width: 70px;
+    height: auto;
+}
+.header .profile{
+    position: relative;
+}
+.header .profile-logo{
+    font-family: var(--font-three);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+    cursor: pointer;
+}
+.header .profile-logo img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+
+/* Dropdown menu */
+.profile-dropdown {
+    position: absolute;
+    top: 55px;
+    right: -20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 10;
+    color: #000;
+}
+  
+.profile-dropdown ul {
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+  
+.profile-dropdown ul li {
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.profile-dropdown ul li a{
+    text-decoration: none;
+    color:#000;
+}
+  
+.profile-dropdown ul li:hover {
+    background: #f0f0f0;
+}
+  
+.profile-dropdown ul li:last-child {
+    border-bottom: none;
+}
+  
+.profile-logo:hover .profile-dropdown {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* End Header */
+
+
+/* Body */
+
+/* Sidebar */
+.body{
+    font-family: var(--font-three);
+
+}
+.sider {
+    background-color: #0b0202;
+    min-height: 100vh;
+    width: 230px;
+    overflow-y: auto;
+    /* padding: 20px; */
+    /* max-height: 100vh; */
+    box-sizing: content-box;
+   
+}
+/* Tùy chỉnh thanh cuộn */
+.sider::-webkit-scrollbar {
+    width: 4px; /* Độ rộng của thanh cuộn */
+}
+
+.sider::-webkit-scrollbar-thumb {
+    background: rgba(255, 203, 0, 0.8); /* Màu của thanh trượt */
+    border-radius: 4px; /* Bo góc */
+}
+
+.sider::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1); /* Màu nền thanh cuộn */
+}
+.sider.col-xl-2{
+    padding:0;
+}
+
+
+
+
+
+/* Menu tiêu đề */
+.menu{
+    margin-top: 25px;
+}
+.menu-title {
+    margin: 0px 0px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #aaa;
+    color: rgb(255, 203, 0);
+    padding: 0px 25px;
+}
+
+/* Menu item */
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+    cursor: pointer;
+    border-radius: 4px;
+    /* transition: background 0.3s; */
+    font-size: 14px;
+    transition: background 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.menu-item:hover {
+    /* background-color: #33354a; */
+    background-color: rgb(255, 203, 0);
+    color: #000;
+}
+.menu-item a{
+    color: #fff;
+    text-decoration: none;
+}
+.menu-item a:hover{
+    color: #000;
+}
+
+/* Icon */
+.menu-item i {
+    margin-right: 10px;
+    font-size: 13px;
+}
+
+.menu-item .icon-dropdown{
+    font-size: 12px;
+}
+
+/* Icon toggle */
+.icon-toggle {
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Submenu */
+.rotate {
+    transform: rotate(-90deg);
+}
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-5px); /* Lúc ẩn, submenu trượt lên */
+    transition: transform 0.2s ease-out, opacity 0.2s ease-out, max-height 0.2s ease-in-out;
+}
+
+.submenu.active {
+    max-height:200px; /* Giá trị đủ lớn để chứa nội dung */
+    opacity: 1;
+    transform: translateY(4px); /* Trượt xuống */
+}
+
+.submenu{
+    padding:0;
+    background-color: #252020;
+}
+.submenu li {
+    list-style: none;
+    padding: 8px 50px;
+    width: 100%;
+}
+
+.submenu a {
+    text-decoration: none;
+    color: white;
+    font-size: 14px;
+    display: inline-block; /* Để transform hoạt động chính xác */
+    transition: transform 0.1s ease-out, color 0.1s ease-in-out;
+}
+
+.submenu li:hover {
+    /* text-decoration: underline; */
+    background-color: #f5c60ade; /* Đổi màu khi hover */
+}
+/* End Submenu */
+
+
+
+
+/* MAIN NEW ARTICLE*/
+.main-new-article{
+    color:#000;
+    /* margin: 15px; */
+    position: relative;
+    flex: 1;
+}
+.main-new-article{
+    border: 1px solid #ddd;
+    background-color: #ddd;
+}
+.main-new-article .card-body{
+    /* font-size: 30px; */
+    background-color: #fff;
+}
+.main-new-article .card-header{
+    font-size: 20px;
+}
+.main-new-article .tabs {
+    display: flex;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.main-new-article .tabs span {
+    margin-right: 20px;
+    font-weight: bold;
+    color: #777;
+    cursor: pointer;
+}
+.main-new-article .tabs .active {
+    color: black;
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+}
+.main-new-article .form-section {
+    display: flex;
+    margin-top: 20px;
+}
+.main-new-article .thumbnail-section {
+    width: 40%;
+    text-align: center;
+    font-weight: bold;
+}
+.main-new-article .thumbnail {
+    width: 95%;
+    height: 350px;
+    border: 1px solid #000;
+    margin: 30px auto;
+    background-size: cover;  /* Hiển thị toàn bộ ảnh */
+    background-position: center;
+    background-repeat: no-repeat;  /* Không lặp ảnh */
+}
+
+.main-new-article .image-btn {
+    background: #ddd;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s ease-in-out;
+}
+.main-new-article .image-btn:hover {
+    background: #bbb;
+    transform: scale(1.1);
+    font-weight: bold;
+}
+.main-new-article .input-section label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.main-new-article .input-section input {
+    width: 95%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+}
+.main-new-article .input-section #summary{
+    height: 150px;
+}
+.main-new-article .input-section #maincontent{
+    height: 250px;
+}
+.main-new-article .form-button {
+    text-align: right;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 45px;
+}
+.main-new-article .cancel, .upload {
+    padding: 10px 35px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.3s ease, background-color 0.3s ease-in-out;
+}
+.main-new-article .cancel:hover, .upload:hover{
+    transform: scale(1.1);
+}
+.main-new-article .cancel {
+    background: red;
+    color: white;
+}
+.main-new-article .upload {
+    background: green;
+    color: white;
+    margin-left: 10px;
+}
+/* END MAIN NEW ARTICLE */
+
+
+
+/* MAIN PERSONAL INFORMATION */
+.main-personal-information{
+    color:#000;
+    flex:1;
+
+}
+.main-personal-information .admin-background{
+    position: relative;
+}
+.main-personal-information .admin-background .inner-image img{
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    
+}
+.main-personal-information .personal-box{
+    position: absolute;
+    top:49px;
+    left:45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color:#fff;
+    font-family: var(--font-main);
+    font-weight: bold;
+}
+.main-personal-information .personal-box .personal-image img{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border:1px solid #fff;
+    object-fit: cover;
+}
+.main-personal-information .personal-box h3{
+    padding-top: 10px;
+    font-size: 25px;
+}
+.main-personal-information .personal-box h4{
+    font-size: 14px;
+}
+.main-personal-information .card-header{
+    display: flex;
+    justify-content: space-between;
+    padding:20px 200px;
+}
+.main-personal-information .card-header .statistic-name{
+    text-align: center;
+}
+.main-personal-information .card-header .statistic{
+    text-align: center;
+}
+.main-personal-information .card-body{
+    background: #ddd;
+}
+.main-personal-information .card-body h3{
+    margin-left: 40px;
+}
+.main-personal-information .container{
+    width: 80%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border: 1px solid #a7a0a0;
+    border-radius: 5px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    /* padding:20px 0; */
+}
+.main-personal-information .container form{
+    padding:20px 20px;
+    margin-left: 90px;
+    padding-top: 50px;
+}
+.main-personal-information form {
+    display: flex;
+    flex-direction: column;
+}
+.main-personal-information .input-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+    width: 90%;
+}
+.main-personal-information .input-group input {
+    padding: 8px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    width: 100%;
+}
+.main-personal-information #profileBio {
+    height: 130px;
+    resize: none;
+}
+.main-personal-information .buttons {
+    display: flex;
+    justify-content: right;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.main-personal-information .profileDiscard {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+    font-size: 13px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+.main-personal-information .profileSave {
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 7px 12px;
+    cursor: pointer;
+    margin-left: 20px;
+    width: 140px;
+    height: 40px;
+    font-size: 13px;
+    border-radius: 6px;
+    transition: all 0.3s ease-in-out;
+}
+.main-personal-information .profileDiscard:hover{
+    transform: scale(1.1);
+}
+.main-personal-information .profileSave:hover{
+    transform: scale(1.1);
+}
+
+/* END MAIN PERSONAL INFORMATION */
+
+
+/* MAIN DASHBOARD */
+.main-dashboard{
+    flex: 1;
+    color:#000;
+    overflow-y: auto;
+}
+.main-dashboard .dashboard-statistic{
+    margin: 40px 0;
+}
+.main-dashboard .dashboard-chart{
+    margin-bottom: 50px;
+}
+.main-dashboard .dashboard-table{
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+}
+.main-dashboard .table-responsive{
+    margin-bottom: 40px;
+    max-height: 400px; /* Điều chỉnh chiều cao tối đa */
+    overflow-y: auto; /* Kích hoạt thanh cuộn dọc */
+    
+}
+/* END MAIN DASHBOARD */
+
+/* MAIN VIEW ARTICLES */
+.main-view-articles{
+    flex:1;
+    color: #000;
+}
+/* Main View Articles */
+.main-view-articles {
+    /* padding: 20px; */
+    background-color: #f8f9fa;
+    /* border-radius: 8px; */
+    margin: 0;
+  }
+  
+  .main-view-articles .card {
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .main-view-articles .card-header {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  
+  .main-view-articles .input-group input {
+    border-radius: 5px;
+  }
+  
+  .main-view-articles .dropdown-toggle {
+    border-radius: 5px;
+  }
+  
+  .main-view-articles .card-body .row {
+    align-items: center;
+  }
+  
+  .main-view-articles .card .card-body .card-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .main-view-articles .card.bg-success {
+    background-color: #28a745 !important;
+  }
+  
+  .main-view-articles .card.bg-warning {
+    background-color: #ffc107 !important;
+  }
+  
+  .main-view-articles .card.bg-info {
+    background-color: #17a2b8 !important;
+  }
+  
+  .main-view-articles .table thead {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .main-view-articles .table td a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .main-view-articles .table td a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+  }
+  
+  .main-view-articles .badge {
+    font-size: 14px;
+    padding: 5px 10px;
+  }
+  
+  .main-view-articles .btn-group .btn {
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+  
+  .main-view-articles .btn-group .btn i {
+    font-size: 14px;
+  }
+  
+/* END MAIN VIEW ARTICLES */

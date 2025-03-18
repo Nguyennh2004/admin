@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" rel="stylesheet">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+      integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/base.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Trang Dashboard</title>
+  </head>
+  <body>
+    <div class="header-body">
+      <header class="header">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-3">
+              <div class="inner-logo">
+                <img src="./images/logo3.png" alt="Logo" />
+                <span>EARTH ODYSSEY</span>
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="profile">
+                <div class="row">
+                  <div class="col-10">
+  
+                  </div>            
+                  <div class="col-2">
+                    <div class="profile-logo dropdown dropdown-toggle">
+                      <img src="./images/profile.jpg" alt="Profile Logo">
+                      <div class="profile-name">Tran Quang Minh</div>
+  
+                       <!-- Dropdown menu -->
+                        <div class="profile-dropdown">
+                          <ul>
+                            <li><a href="../TRANG ADMIN/personal-information.html">Thông tin cá nhân</a></li>
+                            <li>Cài đặt</li>
+                            <li><a href="../TRANG LOGIN ADMIN/index.html">Đăng xuất</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Dropdown -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <div class="container-fluid body">
+        <div class="row w-100">
+          <div class="sider">
+            <div class="inner-sider">
+              <!-- <div class="dash-board">
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Dashboard</span>
+              </div> -->
+              <div class="menu">
+                <div class="menu-title">CORE</div>
+                <div class="menu-item">
+                  <span><i class="fa-solid fa-house"></i>Dashboard</span>
+                </div>
+              </div>
+              <div class="menu">
+                <div class="menu-title">POST</div>
+                <div class="menu-item" onclick="toggleMenu('postMenu', this)">
+                  <span><i class="fas fa-edit"></i> Article</span>
+                  <i class="fas fa-chevron-left icon-toggle icon-dropdown"></i>
+                  <!-- Icon Toggle -->
+                </div>
+                <ul id="postMenu" class="submenu">
+                  <li><a href="./viewallarticles.html">View All</a></li>
+                  <li><a href="./addnewarticle.html">Add New Post</a></li>
+                </ul>
+  
+                <div class="menu-item" onclick="toggleMenu('categoryMenu', this)">
+                  <span><i class="fas fa-tag"></i> Category</span>
+                  <i class="fas fa-chevron-left icon-toggle icon-dropdown"></i>
+                </div>
+                <ul id="categoryMenu" class="submenu">
+                  <li><a href="#">Category 1</a></li>
+                  <li><a href="#">Category 2</a></li>
+                </ul>
+  
+                <div class="menu-item" onclick="toggleMenu('commentMenu', this)">
+                  <span><i class="fas fa-comments"></i> Comments</span>
+                  <i class="fas fa-chevron-left icon-toggle icon-dropdown"></i>
+                </div>
+                <ul id="commentMenu" class="submenu">
+                  <li><a href="#">View comments</a></li>
+                  <li><a href="#">Manage comments</a></li>
+                </ul>
+              </div>
+  
+              <div class="menu">
+                <div class="menu-title">ADMINISTRATOR</div>
+                <div class="menu-item">
+                  <span><i class="fa-solid fa-user-tie"></i>Users</span>
+                </div>
+                <div class="menu-item">
+                  <span><i class="fa-solid fa-circle-check"></i>Subscription</span>
+                </div>
+                <div class="menu-item">
+                  <span><i class="fa-solid fa-gear"></i>General Settings</span>
+                </div>
+                <div class="menu-item personal-information">
+                  <span><i class="fa-solid fa-id-card"></i><a href="./personal-information.html">Personal Infomation</a></span>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+
+          <!-- MAIN DASHBOARD -->
+          <div class="main-dashboard">
+            <div class="container-fluid">
+                <div class="card-header">
+                    <h2>Dashboard</h2>
+                </div>
+            </div>
+            <div class="container mt-4">
+                <div class="dashboard-statistic">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card text-white bg-primary p-3" style="text-align: center;">
+                                <span>30</span> Categories
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-white bg-warning p-3" style="text-align: center;">
+                                <span>10</span> Articles
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card text-white bg-success p-3" style="text-align: center;">
+                                <span>500</span> Comments
+                            </div>
+                        </div>
+                        <div class="col-md-3" >
+                            <div class="card text-white bg-danger p-3" style="text-align: center;">
+                                <span>8</span> Users
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-chart">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <canvas id="areaChart"></canvas>
+                        </div>
+                        <div class="col-md-6">
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <div class="table-responsive mt-4">
+                    <table class="table table-striped dashboard-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Categories</th>
+                                <th>Rank</th>
+                                <th>Start Date</th>
+                                <th>Profit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>How can a giant whale catch a breath</td>
+                                <td>32</td>
+                                <td>Animal</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            <tr>
+                                <td>How can a giant whale catch a breath</td>
+                                <td>32</td>
+                                <td>Animal</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            <tr>
+                                <td>How can a giant whale catch a breath</td>
+                                <td>32</td>
+                                <td>Animal</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            <tr>
+                                <td>How can a giant whale catch a breath</td>
+                                <td>32</td>
+                                <td>Animal</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            <tr>
+                                <td>How can a giant whale catch a breath</td>
+                                <td>32</td>
+                                <td>Animal</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            <tr>
+                                <td>How can a giant whale catch a breath</td>
+                                <td>32</td>
+                                <td>Animal</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            <tr>
+                                <td>How can a giant whale catch a breath</td>
+                                <td>32</td>
+                                <td>Animal</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            <tr>
+                                <td>How can a giant whale catch a breath</td>
+                                <td>32</td>
+                                <td>Animal</td>
+                                <td>33</td>
+                                <td>2008/11/28</td>
+                                <td>$162,700</td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+          </div>
+          <!-- END MAIN DASHBOARD -->
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>
